@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'SCM..'
 
-                sh 'git clone ' + params.Git + ' ' + app// https://github.com/0c34/govwa https://github.com/netlify/gocommerce
+                sh 'git clone ' + params.Git + ' app'// https://github.com/0c34/govwa https://github.com/netlify/gocommerce
             }
         }
 
