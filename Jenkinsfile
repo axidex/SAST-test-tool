@@ -4,10 +4,6 @@ def git_ref = params.Git.split('/')
 // def rep_name = git_ref[-1].split('.')[0]
 
 pipeline {
-    environment {
-        PATH="/opt/homebrew/bin/:/usr/local/go/bin/:/usr/local/bin/:${env.PATH}"
-    }
-
     // TODO: MacOS Jenkins can't refer to Mac docker when using agent{docker} 
     // agent {
     //     docker {
