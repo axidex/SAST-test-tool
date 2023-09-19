@@ -25,7 +25,9 @@ pipeline {
         stage('SAST') {
             steps {
                 echo 'SAST..'
-                sh 'cd app && semgrep ci'
+                sh 'cd app && semgrep --config auto --output ../scan_results.json --json'
+                sh 'python3.10 log.py'
+                sh 'cat data.json'
             }
         }
 
@@ -34,7 +36,7 @@ pipeline {
     post {
         // Clean after build
         always {
-                cleanWs( patterns: [[pattern: '.log', type: 'EXCLUDE']] )
+                cleanWs( patterns: [[pattern: '.json', type: 'EXCLUDE']] )
         }
     }
 }
