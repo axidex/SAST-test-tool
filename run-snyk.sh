@@ -6,7 +6,6 @@ echo "traversing ${d}";
 # else
 cd $d
 echo "running snyk analysis on ${d}"
-snyk test --json --json-file-output=$root/snyk-report.json;
-snyk code test --org=34123eaa-ca83-40dc-a879-93aa551e30d7
+snyk code test --json --json-file-output=$root/snyk-report.json;
 # rm -rf ../scans
 cd $root

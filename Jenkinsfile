@@ -25,7 +25,7 @@ pipeline {
         stage('SAST') {
             steps {
                 echo 'SAST..'
-                sh './run-snyk.sh app/sxss'
+                sh 'cd app && semgrep ci'
             }
         }
 
