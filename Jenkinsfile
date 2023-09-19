@@ -25,7 +25,6 @@ pipeline {
         stage('SAST') {
             steps {
                 echo 'SAST..'
-                sudo 'cd app && pwd'
                 sh 'cd app && semgrep --config auto --output ../scan_results.json --json'
                 sh 'python3.10 log.py'
                 sh 'cat data.json'
