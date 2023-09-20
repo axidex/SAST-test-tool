@@ -12,8 +12,8 @@ res = {}
 for result in data["results"]:
     id = result["extra"].pop("fingerprint")
     delete_trash(result)
-    if "XSS" in result["extra"]["metadata"]["vulnerability_class"][0] or "Cross-site" in result["extra"]["metadata"]["vulnerability_class"][0]:
-        res[id] = result
+    # if "XSS" in result["extra"]["metadata"]["vulnerability_class"][0] or "Cross-site" in result["extra"]["metadata"]["vulnerability_class"][0]:
+    res[id] = result
 
 with open('data.json', 'w') as json_file:
     # Запишите JSON-строку в файл
