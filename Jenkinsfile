@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage('SAST') {
+        stage('SAST') { // https://semgrep.dev/p/minusworld.java-httpservlet-jsp-xss https://semgrep.dev/r?lang=Java&owasp=Cross-Site+Scripting+%28XSS%29
             steps {
                 echo 'SAST..'
                 sh 'cd app && semgrep ' + cfg_ref + ' --output ../scan_results.json --json'
