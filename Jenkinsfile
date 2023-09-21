@@ -26,7 +26,7 @@ pipeline {
         stage('SAST') {
             steps {
                 echo 'SAST..'
-                sh 'cd app && semgrep --config ' + cfg_ref + ' --output ../scan_results.json --json'
+                sh 'cd app && semgrep ' + cfg_ref + ' --output ../scan_results.json --json'
                 sh 'cd app && semgrep ci'
                 sh 'python3.10 log.py'
                 sh 'cat data.json'
